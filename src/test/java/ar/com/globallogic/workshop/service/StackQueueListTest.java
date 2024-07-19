@@ -1,5 +1,7 @@
 package ar.com.globallogic.workshop.service;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,14 +9,12 @@ import java.util.Stack;
 
 import org.junit.jupiter.api.Test;
 
-import ar.com.globallogic.workshop.service.list.OperationsList;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class StackQueueListTest {
     private OperationsCollection operationsCollection = new OperationsCollection();
     private OperationsStackQueue operationsStackQueue = new OperationsStackQueue();
-    private OperationsList operationsList = new OperationsList();
 
     @Test
     public void addCollectionAndStack() {
@@ -35,8 +35,12 @@ public class StackQueueListTest {
             operationsCollection.addCollection(listIntegerArrayList, size);
             operationsStackQueue.addStack(listIntegerStack, size);
             operationsStackQueue.addQueue(queueArrayDeque, size);
-
         }
+        Double value = Math.pow(10, 7);
+        Integer size = value.intValue();
+        assertEquals(size, listIntegerArrayList.size());
+        assertEquals(size, listIntegerStack.size());
+        assertEquals(size, queueArrayDeque.size());
     }
 
     @Test
@@ -55,6 +59,9 @@ public class StackQueueListTest {
             operationsCollection.printValuesCollectionInteger(listIntegerStack);
             operationsCollection.printValuesCollectionInteger(queueArrayDeque);
         }
+
+        assertEquals(0, listIntegerStack.size());
+        assertEquals(0, queueArrayDeque.size());
     }
 
     @Test
@@ -80,6 +87,9 @@ public class StackQueueListTest {
         operationsStackQueue.removeLastQueue(queueArrayDequeLifo);
         log.info("Tamaños:{},{},{},{}", listIntegerArrayList.size(), listIntegerStack.size(),
                 queueArrayDeque.size(), queueArrayDequeLifo.size());
+        assertEquals(0, listIntegerArrayList.size());
+        assertEquals(0, listIntegerStack.size());
+        assertEquals(0, queueArrayDeque.size());
 
     }
 

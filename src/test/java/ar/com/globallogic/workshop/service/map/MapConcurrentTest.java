@@ -1,5 +1,7 @@
 package ar.com.globallogic.workshop.service.map;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -43,6 +45,9 @@ public class MapConcurrentTest {
         thread2.join();
         log.info("Tamaños:{},{},{}", hashMap.size(), linkedHashMap.size(),
                 treeMap.size());
+        assertEquals(size, hashMap.size());
+        assertEquals(size, linkedHashMap.size());
+        assertEquals(size, treeMap.size());
     }
 
     @Test
@@ -80,6 +85,9 @@ public class MapConcurrentTest {
         thread2.join();
         log.info("Tamaños:{},{},{}", hashMap.size(), linkedHashMap.size(),
                 treeMap.size());
+        assertEquals(size, hashMap.size());
+        assertEquals(size, linkedHashMap.size());
+        assertEquals(size, treeMap.size());
     }
 
     @Test
@@ -117,6 +125,9 @@ public class MapConcurrentTest {
         thread2.join();
         log.info("Tamaños:{},{},{}", hashMap.size(), linkedHashMap.size(),
                 treeMap.size());
+        assertEquals(2 * size, hashMap.size());
+        assertEquals(2 * size, linkedHashMap.size());
+        assertEquals(2 * size, treeMap.size());
     }
 
     @Test

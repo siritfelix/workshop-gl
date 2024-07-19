@@ -1,5 +1,7 @@
 package ar.com.globallogic.workshop.service.map;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -28,6 +30,10 @@ public class MapTest {
         operationsMap.printIntegerMap(hashMap);
         operationsMap.printIntegerMap(linkedHashMap);
         operationsMap.printIntegerMap(treeMap);
+
+        assertEquals(size, hashMap.size());
+        assertEquals(size, linkedHashMap.size());
+        assertEquals(size, treeMap.size());
     }
 
     @Test
@@ -52,6 +58,9 @@ public class MapTest {
             operationsMap.printIntegerMap(linkedHashMap);
             operationsMap.printIntegerMap(treeMap);
         }
+        assertEquals(size, hashMap.size());
+        assertEquals(size, linkedHashMap.size());
+        assertEquals(size, treeMap.size());
     }
 
     @Test
@@ -67,6 +76,9 @@ public class MapTest {
         operationsMap.printDomainMap(hashMap);
         operationsMap.printDomainMap(linkedHashMap);
         operationsMap.printDomainMap(treeMap);
+        assertEquals(size, hashMap.size());
+        assertEquals(size, linkedHashMap.size());
+        assertEquals(size, treeMap.size());
     }
 
     @Test
@@ -85,8 +97,12 @@ public class MapTest {
             operationsMap.addIntegerMapReverce(hashMap, size);
             operationsMap.addIntegerMapReverce(linkedHashMap, size);
             operationsMap.addIntegerMapReverce(treeMap, size);
-
         }
+        Double value = Math.pow(10, 7);
+        Integer size = value.intValue();
+        assertEquals(size, hashMap.size());
+        assertEquals(size, linkedHashMap.size());
+        assertEquals(size, treeMap.size());
     }
 
     @Test
@@ -107,6 +123,9 @@ public class MapTest {
         operationsMap.removeMapAllFirstInteger(treeMap);
         log.info("Tamaños:{},{},{}", hashMap.size(), linkedHashMap.size(),
                 treeMap.size());
+        assertEquals(0, hashMap.size());
+        assertEquals(0, linkedHashMap.size());
+        assertEquals(0, treeMap.size());
     }
 
     @Test
@@ -127,6 +146,9 @@ public class MapTest {
         operationsMap.removeMapAllLastInteger(treeMap);
         log.info("Tamaños:{},{},{}", hashMap.size(), linkedHashMap.size(),
                 treeMap.size());
+        assertEquals(0, hashMap.size());
+        assertEquals(0, linkedHashMap.size());
+        assertEquals(0, treeMap.size());
     }
 
     @Test

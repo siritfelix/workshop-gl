@@ -1,5 +1,7 @@
 package ar.com.globallogic.workshop.service.set;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -33,6 +35,9 @@ public class SetTest {
         operationsCollection.printValuesCollectionInteger(linkedHashSetInteger);
         operationsCollection.printValuesCollectionInteger(treeSetInteger);
         operationsCollection.printValuesCollectionInteger(linkedHashSetInteger);
+        assertEquals(size, hashSetInteger.size());
+        assertEquals(size, treeSetInteger.size());
+        assertEquals(size, linkedHashSetInteger.size());
     }
 
     @Test
@@ -49,6 +54,9 @@ public class SetTest {
         operationsCollection.printValuesCollectionInteger(linkedHashSetInteger);
         operationsCollection.printValuesCollectionInteger(treeSetInteger);
         operationsCollection.printValuesCollectionInteger(linkedHashSetInteger);
+        assertEquals(size, hashSetInteger.size());
+        assertEquals(size, treeSetInteger.size());
+        assertEquals(size, linkedHashSetInteger.size());
     }
 
     @Test
@@ -68,6 +76,11 @@ public class SetTest {
             operationsCollection.addCollectionReverce(treeSetInteger, size);
             operationsCollection.addCollectionReverce(linkedHashSetInteger, size);
         }
+        Double value = Math.pow(10, 7);
+        Integer size = value.intValue();
+        assertEquals(size, hashSetInteger.size());
+        assertEquals(size, treeSetInteger.size());
+        assertEquals(size, linkedHashSetInteger.size());
 
     }
 
@@ -110,6 +123,9 @@ public class SetTest {
         operationsCollection.printValuesCollectionDomain(linkedHashSetDomain);
         operationsCollection.printValuesCollectionDomain(treeSetDomain);
         operationsCollection.printValuesCollectionDomain(linkedHashSetDomain);
+        assertEquals(size + 1, hashSetDomain.size());
+        assertEquals(size + 1, treeSetDomain.size());
+        assertEquals(size + 1, linkedHashSetDomain.size());
     }
 
     @Test
@@ -121,6 +137,8 @@ public class SetTest {
         Integer size = value.intValue();
         operationsCollection.addCollection(listIntegerArrayList, size);
         operationsCollection.addCollectionReverce(hashSetInteger, size);
+        assertEquals(size, listIntegerArrayList.size());
+        assertEquals(size, hashSetInteger.size());
     }
 
     @Test
@@ -141,6 +159,9 @@ public class SetTest {
         operationsCollection.removeCollectionAllLastInteger(treeSetInteger);
         operationsCollection.removeCollectionAllLastInteger(linkedHashSetInteger);
         log.info("Tamaños:{},{},{}", hashSetInteger.size(), treeSetInteger.size(), linkedHashSetInteger.size());
+        assertEquals(0, hashSetInteger.size());
+        assertEquals(0, treeSetInteger.size());
+        assertEquals(0, linkedHashSetInteger.size());
     }
 
     @Test
@@ -161,6 +182,9 @@ public class SetTest {
         operationsCollection.removeCollectionAllFirstInteger(treeSetInteger);
         operationsCollection.removeCollectionAllFirstInteger(linkedHashSetInteger);
         log.info("Tamaños:{},{},{}", hashSetInteger.size(), treeSetInteger.size(), linkedHashSetInteger.size());
+        assertEquals(0, hashSetInteger.size());
+        assertEquals(0, treeSetInteger.size());
+        assertEquals(0, linkedHashSetInteger.size());
     }
 
     @Test
@@ -180,6 +204,7 @@ public class SetTest {
                 operationsSet.sortTreeSetDescendingIterator(treeSetInteger));
         log.info("operationsSet.sortTreeSetDescendingSet(treeSetInteger)):{}",
                 operationsSet.sortTreeSetDescendingSet(treeSetInteger));
+        assertEquals(size, treeSetInteger.size());
     }
 
     @Test
@@ -208,5 +233,8 @@ public class SetTest {
                 operationsCollection.useForEachCollection(treeSetInteger));
         log.info("operationsCollection.useForEachCollection(linkedHashSetInteger):{}",
                 operationsCollection.useForEachCollection(linkedHashSetInteger));
+        assertEquals(size, hashSetInteger.size());
+        assertEquals(size, treeSetInteger.size());
+        assertEquals(size, linkedHashSetInteger.size());
     }
 }

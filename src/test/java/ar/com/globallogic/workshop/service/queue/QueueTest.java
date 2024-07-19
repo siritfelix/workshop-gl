@@ -1,5 +1,7 @@
 package ar.com.globallogic.workshop.service.queue;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.ArrayDeque;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -20,14 +22,14 @@ public class QueueTest {
     @Test
     public void create() {
         log.info("------------------------------------------------------------------create");
-        int cantidad = 10;
+        int size = 10;
         PriorityQueue<Integer> queuePriorityQueue = new PriorityQueue<>();
         LinkedList<Integer> queueLinkedList = new LinkedList<>();
         ArrayDeque<Integer> queueArrayDeque = new ArrayDeque<>();
 
-        operationsCollection.addCollectionReverce(queuePriorityQueue, cantidad);
-        operationsCollection.addCollectionReverce(queueLinkedList, cantidad);
-        operationsCollection.addCollectionReverce(queueArrayDeque, cantidad);
+        operationsCollection.addCollectionReverce(queuePriorityQueue, size);
+        operationsCollection.addCollectionReverce(queueLinkedList, size);
+        operationsCollection.addCollectionReverce(queueArrayDeque, size);
 
         operationsCollection.printValuesCollectionInteger(queuePriorityQueue);
         operationsCollection.printValuesCollectionInteger(queueLinkedList);
@@ -36,6 +38,10 @@ public class QueueTest {
         operationsQueue.printQueueInteger(queuePriorityQueue);
         operationsQueue.printQueueInteger(queueLinkedList);
         operationsQueue.printQueueInteger(queueArrayDeque);
+
+        assertEquals(0, queuePriorityQueue.size());
+        assertEquals(0, queueLinkedList.size());
+        assertEquals(0, queueArrayDeque.size());
     }
 
     @Test
@@ -57,6 +63,10 @@ public class QueueTest {
         operationsQueue.printQueueInteger(queuePriorityQueue);
         operationsQueue.printQueueInteger(queueLinkedList);
         operationsQueue.printQueueInteger(queueArrayDeque);
+
+        assertEquals(0, queuePriorityQueue.size());
+        assertEquals(0, queueLinkedList.size());
+        assertEquals(0, queueArrayDeque.size());
     }
 
     @Test
@@ -80,6 +90,10 @@ public class QueueTest {
         operationsQueue.printValuesQueueDomain(queuePriorityQueue);
         operationsQueue.printValuesQueueDomain(queueLinkedList);
         operationsQueue.printValuesQueueDomain(queueArrayDeque);
+
+        assertEquals(0, queuePriorityQueue.size());
+        assertEquals(0, queueLinkedList.size());
+        assertEquals(0, queueArrayDeque.size());
     }
 
     @Test
@@ -97,6 +111,10 @@ public class QueueTest {
         operationsQueue.printValuesQueueDomain(queuePriorityQueue);
         operationsQueue.printValuesQueueDomain(queueLinkedList);
         operationsQueue.printValuesQueueDomain(queueArrayDeque);
+
+        assertEquals(0, queuePriorityQueue.size());
+        assertEquals(0, queueLinkedList.size());
+        assertEquals(0, queueArrayDeque.size());
     }
 
     @Test
@@ -115,10 +133,18 @@ public class QueueTest {
             Double value = Math.pow(10, i);
             Integer size = value.intValue();
             log.info("Interacion:{}, cantidad:{}", i, size);
+            queuePriorityQueue = new PriorityQueue<>();
+            queueLinkedList = new LinkedList<>();
+            queueArrayDeque = new ArrayDeque<>();
             operationsCollection.addCollectionReverce(queuePriorityQueue, size);
             operationsCollection.addCollectionReverce(queueLinkedList, size);
             operationsCollection.addCollectionReverce(queueArrayDeque, size);
         }
+        Double value = Math.pow(10, 7);
+        Integer size = value.intValue();
+        assertEquals(size, queuePriorityQueue.size());
+        assertEquals(size, queueLinkedList.size());
+        assertEquals(size, queueArrayDeque.size());
     }
 
     @Test
@@ -139,6 +165,9 @@ public class QueueTest {
         operationsCollection.removeCollectionAllLastInteger(queueLinkedList);
         operationsCollection.removeCollectionAllLastInteger(queueArrayDeque);
         log.info("Tamaños:{},{},{}", queuePriorityQueue.size(), queueLinkedList.size(), queueArrayDeque.size());
+        assertEquals(0, queuePriorityQueue.size());
+        assertEquals(0, queueLinkedList.size());
+        assertEquals(0, queueArrayDeque.size());
     }
 
     @Test
@@ -159,6 +188,9 @@ public class QueueTest {
         operationsCollection.removeCollectionAllFirstInteger(queueLinkedList);
         operationsCollection.removeCollectionAllFirstInteger(queueArrayDeque);
         log.info("Tamaños:{},{},{}", queuePriorityQueue.size(), queueLinkedList.size(), queueArrayDeque.size());
+        assertEquals(0, queuePriorityQueue.size());
+        assertEquals(0, queueLinkedList.size());
+        assertEquals(0, queueArrayDeque.size());
     }
 
     @Test
@@ -179,6 +211,9 @@ public class QueueTest {
         operationsQueue.removeAllQueue(queueLinkedList);
         operationsQueue.removeAllQueue(queueArrayDeque);
         log.info("Tamaños:{},{},{}", queuePriorityQueue.size(), queueLinkedList.size(), queueArrayDeque.size());
+        assertEquals(0, queuePriorityQueue.size());
+        assertEquals(0, queueLinkedList.size());
+        assertEquals(0, queueArrayDeque.size());
     }
 
     @Test

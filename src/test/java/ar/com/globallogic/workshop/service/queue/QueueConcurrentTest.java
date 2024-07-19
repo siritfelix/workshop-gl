@@ -1,5 +1,7 @@
 package ar.com.globallogic.workshop.service.queue;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -16,7 +18,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class QueueConcurrentTest {
     private OperationsCollection operationsCollection = new OperationsCollection();
-    private OperationsQueue operationsQueue = new OperationsQueue();
 
     @Test
     public void create() throws InterruptedException {
@@ -43,6 +44,9 @@ public class QueueConcurrentTest {
         thread2.join();
         log.info("Tamaños:{},{},{}", queuePriorityQueue.size(), queueLinkedList.size(),
                 queueArrayDeque.size());
+        assertEquals(2 * size, queuePriorityQueue.size());
+        assertEquals(2 * size, queueLinkedList.size());
+        assertEquals(2 * size, queueArrayDeque.size());
     }
 
     @Test
@@ -77,6 +81,9 @@ public class QueueConcurrentTest {
         thread2.join();
         log.info("Tamaños:{},{},{}", queuePriorityQueue.size(), queueLinkedList.size(),
                 queueArrayDeque.size());
+        assertEquals(2 * size, queuePriorityQueue.size());
+        assertEquals(2 * size, queueLinkedList.size());
+        assertEquals(2 * size, queueArrayDeque.size());
     }
 
     @Test
@@ -112,6 +119,9 @@ public class QueueConcurrentTest {
         thread2.join();
         log.info("Tamaños:{},{},{}", queuePriorityQueue.size(), queueLinkedList.size(),
                 queueArrayDeque.size());
+        assertEquals(2 * size, queuePriorityQueue.size());
+        assertEquals(2 * size, queueLinkedList.size());
+        assertEquals(2 * size, queueArrayDeque.size());
     }
 
     @Test

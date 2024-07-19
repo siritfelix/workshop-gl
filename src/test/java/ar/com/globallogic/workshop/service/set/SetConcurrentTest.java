@@ -55,7 +55,6 @@ public class SetConcurrentTest {
         log.info("------------------------------------------------------------------createSynchronized");
         Double value = Math.pow(10, 4);
         Integer size = value.intValue();
-        Integer offSet = size;
         log.info("Potencia:{}, cantidad:{}", 4, size);
         Set<Integer> hashSetInteger = new HashSet<>();
         Set<Integer> treeSetInteger = new TreeSet<>();

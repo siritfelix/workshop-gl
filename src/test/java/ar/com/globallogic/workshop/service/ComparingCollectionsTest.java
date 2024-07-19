@@ -1,5 +1,7 @@
 package ar.com.globallogic.workshop.service;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,14 +19,12 @@ import org.junit.jupiter.api.Test;
 
 import ar.com.globallogic.workshop.service.list.OperationsList;
 import ar.com.globallogic.workshop.service.queue.OperationsQueue;
-import ar.com.globallogic.workshop.service.set.OperationsSet;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class ComparingCollectionsTest {
     private OperationsCollection operationsCollection = new OperationsCollection();
     private OperationsList operationsList = new OperationsList();
-    private OperationsSet operationsSet = new OperationsSet();
     private OperationsQueue operationsQueue = new OperationsQueue();
 
     @Test
@@ -32,7 +32,7 @@ public class ComparingCollectionsTest {
         List<Integer> listIntegerArrayList = new ArrayList<>();
         List<Integer> listIntegerLinkedList = new LinkedList<>();
         List<Integer> listIntegerVector = new Vector<>();
-        List<Integer> listIntegerStatck = new Stack<>();
+        List<Integer> listIntegerStack = new Stack<>();
         Set<Integer> hashSetInteger = new HashSet<>();
         Set<Integer> treeSetInteger = new TreeSet<>();
         Set<Integer> linkedHashSetInteger = new LinkedHashSet<>();
@@ -47,7 +47,7 @@ public class ComparingCollectionsTest {
         operationsCollection.addCollectionReverce(listIntegerArrayList, size);
         operationsCollection.addCollectionReverce(listIntegerLinkedList, size);
         operationsCollection.addCollectionReverce(listIntegerVector, size);
-        operationsCollection.addCollectionReverce(listIntegerStatck, size);
+        operationsCollection.addCollectionReverce(listIntegerStack, size);
         log.info("-------------------------------------------------Set");
         operationsCollection.addCollectionReverce(hashSetInteger, size);
         operationsCollection.addCollectionReverce(treeSetInteger, size);
@@ -56,6 +56,19 @@ public class ComparingCollectionsTest {
         operationsCollection.addCollectionReverce(queuePriorityQueue, size);
         operationsCollection.addCollectionReverce(queueLinkedList, size);
         operationsCollection.addCollectionReverce(queueArrayDeque, size);
+        assertEquals(size, listIntegerArrayList.size());
+        assertEquals(size, listIntegerLinkedList.size());
+        assertEquals(size, listIntegerVector.size());
+
+        assertEquals(size, listIntegerStack.size());
+        assertEquals(size, hashSetInteger.size());
+        assertEquals(size, treeSetInteger.size());
+        assertEquals(size, linkedHashSetInteger.size());
+
+        assertEquals(size, queuePriorityQueue.size());
+        assertEquals(size, queueLinkedList.size());
+        assertEquals(size, queueArrayDeque.size());
+
     }
 
     @Test
@@ -64,7 +77,7 @@ public class ComparingCollectionsTest {
         List<Integer> listIntegerArrayList = new ArrayList<>();
         List<Integer> listIntegerLinkedList = new LinkedList<>();
         List<Integer> listIntegerVector = new Vector<>();
-        List<Integer> listIntegerStatck = new Stack<>();
+        List<Integer> listIntegerStack = new Stack<>();
         Set<Integer> hashSetInteger = new HashSet<>();
         Set<Integer> treeSetInteger = new TreeSet<>();
         Set<Integer> linkedHashSetInteger = new LinkedHashSet<>();
@@ -79,7 +92,7 @@ public class ComparingCollectionsTest {
         operationsCollection.addCollectionReverce(listIntegerArrayList, size);
         operationsCollection.addCollectionReverce(listIntegerLinkedList, size);
         operationsCollection.addCollectionReverce(listIntegerVector, size);
-        operationsCollection.addCollectionReverce(listIntegerStatck, size);
+        operationsCollection.addCollectionReverce(listIntegerStack, size);
         log.info("-------------------------------------------------Set");
         operationsCollection.addCollectionReverce(hashSetInteger, size);
         operationsCollection.addCollectionReverce(treeSetInteger, size);
@@ -93,7 +106,7 @@ public class ComparingCollectionsTest {
         operationsCollection.removeCollectionAllFirstInteger(listIntegerArrayList);
         operationsCollection.removeCollectionAllFirstInteger(listIntegerLinkedList);
         operationsCollection.removeCollectionAllFirstInteger(listIntegerVector);
-        operationsCollection.removeCollectionAllFirstInteger(listIntegerStatck);
+        operationsCollection.removeCollectionAllFirstInteger(listIntegerStack);
         log.info("Eliminando valores desde el primer elemento del set");
         operationsCollection.removeCollectionAllFirstInteger(hashSetInteger);
         operationsCollection.removeCollectionAllFirstInteger(treeSetInteger);
@@ -102,6 +115,19 @@ public class ComparingCollectionsTest {
         operationsCollection.removeCollectionAllFirstInteger(queuePriorityQueue);
         operationsCollection.removeCollectionAllFirstInteger(queueLinkedList);
         operationsCollection.removeCollectionAllFirstInteger(queueArrayDeque);
+
+        assertEquals(0, listIntegerArrayList.size());
+        assertEquals(0, listIntegerLinkedList.size());
+        assertEquals(0, listIntegerVector.size());
+
+        assertEquals(0, listIntegerStack.size());
+        assertEquals(0, hashSetInteger.size());
+        assertEquals(0, treeSetInteger.size());
+        assertEquals(0, linkedHashSetInteger.size());
+
+        assertEquals(0, queuePriorityQueue.size());
+        assertEquals(0, queueLinkedList.size());
+        assertEquals(0, queueArrayDeque.size());
     }
 
     @Test
@@ -110,7 +136,7 @@ public class ComparingCollectionsTest {
         List<Integer> listIntegerArrayList = new ArrayList<>();
         List<Integer> listIntegerLinkedList = new LinkedList<>();
         List<Integer> listIntegerVector = new Vector<>();
-        List<Integer> listIntegerStatck = new Stack<>();
+        List<Integer> listIntegerStack = new Stack<>();
         List<Integer> listIntegerArrayList2 = new ArrayList<>();
         List<Integer> listIntegerLinkedList2 = new LinkedList<>();
         List<Integer> listIntegerVector2 = new Vector<>();
@@ -129,7 +155,7 @@ public class ComparingCollectionsTest {
         operationsCollection.addCollectionReverce(listIntegerArrayList, size);
         operationsCollection.addCollectionReverce(listIntegerLinkedList, size);
         operationsCollection.addCollectionReverce(listIntegerVector, size);
-        operationsCollection.addCollectionReverce(listIntegerStatck, size);
+        operationsCollection.addCollectionReverce(listIntegerStack, size);
         operationsCollection.addCollectionReverce(listIntegerArrayList2, size);
         operationsCollection.addCollectionReverce(listIntegerLinkedList2, size);
         operationsCollection.addCollectionReverce(listIntegerVector2, size);
@@ -147,7 +173,7 @@ public class ComparingCollectionsTest {
         operationsList.removeAllFirstListInteger(listIntegerArrayList);
         operationsList.removeAllFirstListInteger(listIntegerLinkedList);
         operationsList.removeAllFirstListInteger(listIntegerVector);
-        operationsList.removeAllFirstListInteger(listIntegerStatck);
+        operationsList.removeAllFirstListInteger(listIntegerStack);
         log.info("Eliminando valores desde el ultimo elemento de la lista");
         operationsList.removeAllLastListInteger(listIntegerArrayList2);
         operationsList.removeAllLastListInteger(listIntegerLinkedList2);
@@ -161,6 +187,19 @@ public class ComparingCollectionsTest {
         operationsQueue.removeAllQueue(queuePriorityQueue);
         operationsQueue.removeAllQueue(queueLinkedList);
         operationsQueue.removeAllQueue(queueArrayDeque);
+
+        assertEquals(0, listIntegerArrayList.size());
+        assertEquals(0, listIntegerLinkedList.size());
+        assertEquals(0, listIntegerVector.size());
+
+        assertEquals(0, listIntegerStack.size());
+        assertEquals(0, hashSetInteger.size());
+        assertEquals(0, treeSetInteger.size());
+        assertEquals(0, linkedHashSetInteger.size());
+
+        assertEquals(0, queuePriorityQueue.size());
+        assertEquals(0, queueLinkedList.size());
+        assertEquals(0, queueArrayDeque.size());
     }
 
     @Test

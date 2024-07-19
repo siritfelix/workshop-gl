@@ -1,5 +1,7 @@
 package ar.com.globallogic.workshop.service.list;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,14 +11,12 @@ import java.util.Vector;
 import org.junit.jupiter.api.Test;
 
 import ar.com.globallogic.workshop.service.OperationsCollection;
-import ar.com.globallogic.workshop.service.OperationsStackQueue;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class ListTest {
     private OperationsCollection operationsCollection = new OperationsCollection();
     private OperationsList operationsList = new OperationsList();
-    private OperationsStackQueue operationsListStack = new OperationsStackQueue();
 
     @Test
     public void create() {
@@ -36,6 +36,12 @@ public class ListTest {
         operationsCollection.printValuesCollectionInteger(listIntegerLinkedList);
         operationsCollection.printValuesCollectionInteger(listIntegerVector);
         operationsCollection.printValuesCollectionInteger(listIntegerStack);
+
+        assertEquals(size, listIntegerArrayList.size());
+        assertEquals(size, listIntegerLinkedList.size());
+        assertEquals(size, listIntegerVector.size());
+        assertEquals(size, listIntegerStack.size());
+
     }
 
     @Test
@@ -58,6 +64,13 @@ public class ListTest {
             operationsCollection.addCollection(listIntegerVector, size);
             operationsCollection.addCollection(listIntegerStack, size);
         }
+        Double value = Math.pow(10, 7);
+        Integer size = value.intValue();
+        assertEquals(size, listIntegerArrayList.size());
+        assertEquals(size, listIntegerLinkedList.size());
+        assertEquals(size, listIntegerVector.size());
+        assertEquals(size, listIntegerStack.size());
+
     }
 
     @Test
@@ -82,6 +95,10 @@ public class ListTest {
         operationsCollection.removeCollectionAllLastInteger(listIntegerStack);
         log.info("Tamaños:{},{},{},{}", listIntegerArrayList.size(), listIntegerLinkedList.size(),
                 listIntegerVector.size(), listIntegerStack.size());
+        assertEquals(0, listIntegerArrayList.size());
+        assertEquals(0, listIntegerLinkedList.size());
+        assertEquals(0, listIntegerVector.size());
+        assertEquals(0, listIntegerStack.size());
 
     }
 
@@ -107,6 +124,10 @@ public class ListTest {
         operationsCollection.removeCollectionAllFirstInteger(listIntegerStack);
         log.info("Tamaños:{},{},{},{}", listIntegerArrayList.size(), listIntegerLinkedList.size(),
                 listIntegerVector.size(), listIntegerStack.size());
+        assertEquals(0, listIntegerArrayList.size());
+        assertEquals(0, listIntegerLinkedList.size());
+        assertEquals(0, listIntegerVector.size());
+        assertEquals(0, listIntegerStack.size());
     }
 
     @Test
@@ -138,6 +159,10 @@ public class ListTest {
         operationsList.removeAllLastListInteger(listIntegerStack);
         log.info("Tamaños:{},{},{},{}", listIntegerArrayList.size(), listIntegerLinkedList.size(),
                 listIntegerVector.size(), listIntegerStack.size());
+        assertEquals(0, listIntegerArrayList.size());
+        assertEquals(0, listIntegerLinkedList.size());
+        assertEquals(0, listIntegerVector.size());
+        assertEquals(0, listIntegerStack.size());
 
     }
 
@@ -163,6 +188,10 @@ public class ListTest {
         operationsList.removeAllFirstListInteger(listIntegerStack);
         log.info("Tamaños:{},{},{},{}", listIntegerArrayList.size(), listIntegerLinkedList.size(),
                 listIntegerVector.size(), listIntegerStack.size());
+        assertEquals(0, listIntegerArrayList.size());
+        assertEquals(0, listIntegerLinkedList.size());
+        assertEquals(0, listIntegerVector.size());
+        assertEquals(0, listIntegerStack.size());
     }
 
     @Test
@@ -193,7 +222,8 @@ public class ListTest {
         log.info("Eliminando valores desde el primer elemento de la lista");
         operationsList.removeAllFirstListInteger(listIntegerArrayList);
         operationsList.removeAllFirstLinkedListInteger(listIntegerLinkedList);
-
+        assertEquals(0, listIntegerArrayList.size());
+        assertEquals(0, listIntegerLinkedList.size());
     }
 
     @Test
@@ -208,6 +238,8 @@ public class ListTest {
         log.info("Eliminando valores desde el ultimo elemento de la lista");
         operationsList.removeAllLastListInteger(listIntegerArrayList);
         operationsList.removeAllLastLinkedListInteger(listIntegerLinkedList);
+        assertEquals(0, listIntegerArrayList.size());
+        assertEquals(0, listIntegerLinkedList.size());
     }
 
     @Test
@@ -233,6 +265,10 @@ public class ListTest {
                 operationsList.sortLargestSmallest(listIntegerArrayList));
         log.info("operationsCollection.sortLargestSmallest(listIntegerLinkedList)):{}",
                 operationsList.sortLargestSmallest(listIntegerLinkedList));
+        assertEquals(size - 1, listIntegerArrayList.get(0));
+        assertEquals(size - 1, listIntegerLinkedList.get(0));
+        assertEquals(0, listIntegerArrayList.get(size - 1));
+        assertEquals(0, listIntegerLinkedList.get(size - 1));
     }
 
     @Test
@@ -249,6 +285,10 @@ public class ListTest {
                 operationsList.sortSmallestLargest(listIntegerArrayList));
         log.info("operationsCollection.sortSmallestLargest(listIntegerLinkedList)):{}",
                 operationsList.sortSmallestLargest(listIntegerLinkedList));
+        assertEquals(0, listIntegerArrayList.get(0));
+        assertEquals(0, listIntegerLinkedList.get(0));
+        assertEquals(size - 1, listIntegerArrayList.get(size - 1));
+        assertEquals(size - 1, listIntegerLinkedList.get(size - 1));
     }
 
     @Test
@@ -272,6 +312,5 @@ public class ListTest {
         log.info("operationsCollection.useForEachCollection(listIntegerLinkedList):{}",
                 operationsCollection.useForEachCollection(listIntegerLinkedList));
     }
-
 
 }

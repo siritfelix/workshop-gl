@@ -1,5 +1,7 @@
 package ar.com.globallogic.workshop.service.list;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -48,6 +50,11 @@ public class ListConcurrentTest {
         thread2.join();
         log.info("Tamaños:{},{},{},{}", listIntegerArrayList.size(), listIntegerLinkedList.size(),
                 listIntegerVector.size(), listIntegerStack.size());
+        assertEquals(2 * size, listIntegerArrayList.size());
+        assertEquals(2 * size, listIntegerLinkedList.size());
+        assertEquals(2 * size, listIntegerVector.size());
+        assertEquals(2 * size, listIntegerStack.size());
+
     }
 
     @Test
@@ -87,6 +94,10 @@ public class ListConcurrentTest {
         thread2.join();
         log.info("Tamaños:{},{},{},{}", listIntegerArrayList.size(), listIntegerLinkedList.size(),
                 listIntegerVector.size(), listIntegerStack.size());
+        assertEquals(2 * size, listIntegerArrayList.size());
+        assertEquals(2 * size, listIntegerLinkedList.size());
+        assertEquals(2 * size, listIntegerVector.size());
+        assertEquals(2 * size, listIntegerStack.size());
     }
 
     @Test
@@ -126,6 +137,10 @@ public class ListConcurrentTest {
         thread2.join();
         log.info("Tamaños:{},{},{},{}", listIntegerArrayList.size(), listIntegerLinkedList.size(),
                 listIntegerVector.size(), listIntegerStack.size());
+        assertEquals(2 * size, listIntegerArrayList.size());
+        assertEquals(2 * size, listIntegerLinkedList.size());
+        assertEquals(2 * size, listIntegerVector.size());
+        assertEquals(2 * size, listIntegerStack.size());
     }
 
     @Test
